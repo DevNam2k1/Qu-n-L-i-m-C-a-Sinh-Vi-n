@@ -21,4 +21,7 @@ Route::get('/dashboard', 'AdminController@dashboard');
 //Login and logout admin
 Route::get('/logout-admin', 'AdminController@logout_admin');
 Route::post('/login-admin', 'AdminController@login_admin');
+//Quản lý điểm
+Route::get('/add-point','PointController@add_point');
+Route::get('/score-list','PointController@score_list');
 

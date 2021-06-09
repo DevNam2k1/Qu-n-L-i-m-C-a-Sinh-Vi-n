@@ -25,7 +25,7 @@ class AdminController extends Controller
 
     public function dashboard(){
         $this->AuthLogin();
-        return view('admin_layout');
+        return view('admin.dashboard');
     }
 
     public function login_admin(Request $request){
