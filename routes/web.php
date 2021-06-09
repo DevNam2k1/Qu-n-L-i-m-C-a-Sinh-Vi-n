@@ -24,4 +24,6 @@ Route::post('/login-admin', 'AdminController@login_admin');
 //Quản lý điểm
 Route::get('/add-point','PointController@add_point');
 Route::get('/score-list','PointController@score_list');
-
+//Quản lý Sinh viên
+Route::get('/add-student','StudentController@add_student');
+Route::get('/student-list','StudentController@student_list');

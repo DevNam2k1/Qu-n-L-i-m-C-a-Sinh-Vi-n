@@ -163,7 +163,7 @@
             <a href="#" class="nav-link">
               <i class="fas fa-book nav-icon"></i>
               <p>
-                Quản Lí Điểm
+                Quản Lý Điểm
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -193,27 +193,139 @@
             <a href="#" class="nav-link">
               <i class="fas fa-user-graduate nav-icon"></i>
               <p>
-                Quản Lí Sinh Viên
+                 Sinh Viên
                 <i class="right fas fa-angle-left "></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{URL::to('/score-list')}}" class="nav-link">
+                <a href="{{URL::to('/student-list')}}" class="nav-link">
                   <i class="fas fa-list nav-icon"></i>
                   <p> Danh Sách</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('/add-point')}}" class="nav-link">
+                <a href="{{URL::to('/add-student')}}" class="nav-link">
                   <i class="fas fa-plus-square nav-icon"></i>
                   <p>Thêm Sinh Viên</p>
                 </a>
               </li>
             </ul>
           </li>
-
-
+          {{--Quản lý Giảng Viên--}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-chalkboard-teacher nav-icon"></i>
+              <p>
+                Giảng Viên
+                <i class="right fas fa-angle-left "></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{URL::to('lecturers-list')}}" class="nav-link">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p> Danh Sách</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{URL::to('/add-lecturers')}}" class="nav-link">
+                  <i class="fas fa-plus-square nav-icon"></i>
+                  <p>Thêm Giảng Viên</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          {{--Quản Lý Môn Học--}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-book nav-icon"></i>
+              <p>
+                Môn Học
+                <i class="right fas fa-angle-left "></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{URL::to('lecturers-list')}}" class="nav-link">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p> Danh Sách</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{URL::to('/add-lecturers')}}" class="nav-link">
+                  <i class="fas fa-plus-square nav-icon"></i>
+                  <p>Thêm Môn Học</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          {{--Quản Lý Lớp Học--}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-school nav-icon"></i>
+              <p>
+                Lớp Học
+                <i class="right fas fa-angle-left "></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{URL::to('lecturers-list')}}" class="nav-link">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p> Danh Sách</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{URL::to('/add-lecturers')}}" class="nav-link">
+                  <i class="fas fa-plus-square nav-icon"></i>
+                  <p>Thêm Lớp Học</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          {{--Quản Lý Lớp Học--}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-laptop nav-icon"></i>
+              <p>
+                Ngành Học
+                <i class="right fas fa-angle-left "></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{URL::to('lecturers-list')}}" class="nav-link">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p> Danh Sách</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{URL::to('/add-lecturers')}}" class="nav-link">
+                  <i class="fas fa-plus-square nav-icon"></i>
+                  <p>Thêm Ngành Học</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          {{--Lịch Học--}}
+          <li class="nav-item">
+            <a href="pages/calendar.html" class="nav-link">
+              <i class="nav-icon fas fa-calendar-alt"></i>
+              <p>
+                Lịch Học
+                <span class="badge badge-info right">0</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/calendar.html" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Quản Lý User
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -293,5 +405,64 @@
 <script src="{{asset('public/backend/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('public/backend/dist/js/pages/dashboard.js')}}"></script>
+<script>
+$('#reservationtime').daterangepicker({
+  timePicker: true,
+  timePickerIncrement: 30,
+  locale: {
+    format: 'MM/DD/YYYY hh:mm A'
+  }
+})
+$('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+  var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    var donutData        = {
+      labels: [
+          'Chrome',
+          'IE',
+          'FireFox',
+          'Safari',
+          'Opera',
+          'Navigator',
+      ],
+      datasets: [
+        {
+          data: [700,500,400,600,300,100],
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions
+    })
+
+    //-------------
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var pieData        = donutData;
+    var pieOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    new Chart(pieChartCanvas, {
+      type: 'pie',
+      data: pieData,
+      options: pieOptions
+    })
+
+</script>
 </body>
 </html>
