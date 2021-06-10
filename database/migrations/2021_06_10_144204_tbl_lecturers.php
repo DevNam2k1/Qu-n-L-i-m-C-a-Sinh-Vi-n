@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TblMajor extends Migration
+class TblLecturers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class TblMajor extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_major', function (Blueprint $table) {
-            $table->string('major_id');
-            $table->string('major_name');
+        Schema::create('tbl_lecturers', function (Blueprint $table) {
+            $table->string('lecturers_id',10);
+            $table->string('lecturers_name',50);
+            $table->integer('gender',10);
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class TblMajor extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_major');
+        Schema::dropIfExists('tbl_lecturers');
     }
 }

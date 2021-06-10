@@ -14,8 +14,12 @@ class TblClass extends Migration
     public function up()
     {
         Schema::create('tbl_class', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('class_id');
+            $table->string('major_id');
+            $table->string('teacher_id');
+            $table->integer('student_qty');
+            $table->date('star_time');
+            $table->date('end_time');
         });
     }
 
