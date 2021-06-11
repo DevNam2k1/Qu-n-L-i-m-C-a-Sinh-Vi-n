@@ -17,7 +17,7 @@
 @section('admin_content')
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Danh Sách Giảng Viên</h3>
+      <h3 class="card-title">Danh Sách Ngành Học</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -32,29 +32,25 @@
         <br>
         <thead>
           <tr>
-            <th width="150px">Mã Giảng Viên</th>
-            <th>Họ Và Tên</th>
-            <th width="250px">Giới Tính </th>
+            <th width="150px">Mã Ngành Học</th>
+            <th>Tên Ngành Học</th>
             <th width="150px"></th>
             
           </tr>
         </thead>
         <tbody>
-          @foreach ($lecturers_list as $key => $teacher)
+          @foreach ($major_list as $key => $major)
           <tr>
-            <td>{{$teacher->lecturers_id}}</td>
-            <td>{{$teacher->lecturers_name}}</td>
-            @if ($teacher->gender == 1)
-                <td>Nam</td>
-            @else
-                <td>Nữ</td>
-            @endif
+            <td>{{$major->major_id}}</td>
+            <td>{{$major->major_name}}</td>
+
             <td>
-                <a href="{{URL::to('/edit-lecturers/'.$teacher->lecturers_id)}}" class="active styling-edit " ui-toggle-class="" style="margin-left: 5px; font-size:20px; ">
+
+                <a href="{{URL::to('/edit-major/'.$major->major_id)}}" class="active styling-edit " ui-toggle-class="" style="margin-left: 5px; font-size:20px; ">
                   <i class="far fa-edit text-success" ></i>
                 </a>
                 &nbsp;&nbsp;&nbsp;
-                <a onClick="return confirm('Bạn có chắc muốn xóa giảng viên này không?')" href="{{URL::to('/delete-lecturers/'.$teacher->lecturers_id)}}" style="margin-left: 5px; font-size:20px;" class="active styling-edit" ui-toggle-class="">
+                <a onClick="return confirm('Bạn có chắc muốn xóa giảng viên này không?')" href="{{URL::to('/delete-major/'.$major->major_id)}}" style="margin-left: 5px; font-size:20px;" class="active styling-edit" ui-toggle-class="">
                   <i class="fa fa-times text-danger "></i></a>
                 </a>
               </td>

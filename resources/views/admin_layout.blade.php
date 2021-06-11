@@ -284,7 +284,7 @@
               </li>
             </ul>
           </li>
-          {{--Quản Lý Lớp Học--}}
+          {{--Quản Lý Ngành Học--}}
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="fas fa-laptop nav-icon"></i>
@@ -410,12 +410,13 @@ $('#reservationtime').daterangepicker({
   timePicker: true,
   timePickerIncrement: 30,
   locale: {
-    format: 'MM/DD/YYYY hh:mm A'
+    format: 'DD/MM/YYYY hh:mm A'
   }
 })
 $('#reservationdate').datetimepicker({
         format: 'L'
     });
+
   var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
       labels: [
