@@ -48,5 +48,8 @@ Route::post('/update-major/{major_id}','MajorController@update_major');
 //Quản lý Ngành Học
 Route::get('/add-class','ClassController@add_class');
 Route::get('/class-list','ClassController@class_list');
+Route::get('/edit-class/{class_id}','ClassController@edit_class');
+Route::get('/delete-class/{class_id}','ClassController@delete_class');
 
 Route::post('/save-class','ClassController@save_class');
+Route::post('/update-class/{class_id}','ClassController@update_class');
