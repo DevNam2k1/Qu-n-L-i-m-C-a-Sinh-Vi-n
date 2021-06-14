@@ -45,7 +45,7 @@ Route::get('/delete-major/{major_id}','MajorController@delete_major');
 Route::post('/save-major','MajorController@save_major');
 Route::post('/update-major/{major_id}','MajorController@update_major');
 
-//Quản lý Ngành Học
+//Quản lý Lớp Học
 Route::get('/add-class','ClassController@add_class');
 Route::get('/class-list','ClassController@class_list');
 Route::get('/edit-class/{class_id}','ClassController@edit_class');
@@ -53,3 +53,11 @@ Route::get('/delete-class/{class_id}','ClassController@delete_class');
 
 Route::post('/save-class','ClassController@save_class');
 Route::post('/update-class/{class_id}','ClassController@update_class');
+
+//Quản lý Môn Học
+Route::get('/add-subject','SubjectController@add_subject');
+Route::get('/subject-list','SubjectController@subject_list');
+Route::get('/edit-subject/{subject_id}','SubjectController@edit_subject');
+
+Route::post('/save-subject','SubjectController@save_subject');
+Route::post('/update-subject/{subject_id}','SubjectController@update_subject');

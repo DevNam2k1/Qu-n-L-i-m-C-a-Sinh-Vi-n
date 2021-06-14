@@ -74,4 +74,5 @@ class ClassController extends Controller
     return Redirect::to('/class-list');
 
 }
+
 }
