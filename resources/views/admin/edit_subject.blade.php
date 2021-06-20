@@ -50,8 +50,39 @@
                    <option  value="{{$teacher->lecturers_id}}">{{$teacher->lecturers_name}}</option> 
               @endforeach
              </select>
-          </div>
         </div>
+        <div class="form-group">
+          <label>Thi Skill</label>
+          <br>
+          <input type="radio" value="1" 
+           @if ($subject->is_skill == 1)
+               checked
+            @endif 
+            id="radioPrimary3" name="is_skill" > Có Thi Skill
+          <input type="radio" value="0" 
+           @if ($subject->is_skill == 0)
+               checked
+            @endif 
+             style="margin-left:200px;" id="radioPrimary3" name="is_skill" > Không Thi Skill
+        </div>
+        <div class="form-group">
+          <label>Thi Final</label>
+          <br>
+          <input type="radio" value="1" 
+          @if ($subject->is_final == 1)
+          checked
+          @endif 
+          id="radioPrimary3" name="is_final" >Có Thi Final
+          <input type="radio" value="0"
+          @if ($subject->is_final == 0)
+          checked
+          @endif 
+          style="margin-left:200px;" id="radioPrimary3" name="is_final" >  Không Thi Final
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Ngày Bắt Đầu</label>
+          <input type="date" value="{{$subject->start_subject}}" class="form-control" name="start_subject" id="exampleInputPassword1" placeholder="Thời Lượng Môn Học">
+      </div>
       <!-- /.card-body -->
       <div class="card-footer">
         <button type="submit" onClick="return confirm('Bạn có chắc muốn cập nhật môn học không ^^')" name="update_subject" class="btn btn-primary">Cập Nhật</button>

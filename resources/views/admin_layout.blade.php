@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="{{asset('public/backend/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('public/backend/plugins/summernote/summernote-bs4.min.css')}}">
+  {{-- Validation Form CSS --}}
+  <link rel="stylesheet" href="{{asset('public/backend/dist/css/formValidation.min.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -133,7 +135,7 @@
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Tìm Kiếm" aria-label="Search">
           <div class="input-group-append">
             <button class="btn btn-sidebar">
               <i class="fas fa-search fa-fw"></i>
@@ -177,7 +179,7 @@
               <li class="nav-item">
                 <a href="{{URL::to('/scholarship')}}" class="nav-link">
                   <i class="fas fa-graduation-cap nav-icon"></i>
-                  <p> Xét Học Bổng</p>
+                  <p>Bảng Điểm Theo Lớp</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -308,6 +310,30 @@
               </li>
             </ul>
           </li>
+          {{--Quản Lý Khóa--}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-id-card nav-icon"></i>
+              <p>
+                Khóa
+                <i class="right fas fa-angle-left "></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{URL::to('course-list')}}" class="nav-link">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p> Danh Sách</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{URL::to('/add-course')}}" class="nav-link">
+                  <i class="fas fa-plus-square nav-icon"></i>
+                  <p>Thêm Khóa</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           {{--Lịch Học--}}
           <li class="nav-item">
             <a href="{{URL::to('/calendar')}}" class="nav-link">
@@ -405,6 +431,14 @@
 <script src="{{asset('public/backend/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('public/backend/dist/js/pages/dashboard.js')}}"></script>
+{{-- JQuery Validation Form --}}
+<script src="{{asset('public/backend/dist/js/formValidation.js')}}"></script>
+<script type="text/javascript">
+  $.validate({
+
+  });
+
+</script>
 <script>
 $('#reservationtime').daterangepicker({
   timePicker: true,
@@ -465,5 +499,7 @@ $('#reservationdate').datetimepicker({
     })
 
 </script>
+
+
 </body>
 </html>

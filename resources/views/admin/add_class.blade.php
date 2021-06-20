@@ -52,6 +52,15 @@
              </select>
           </div>
           <div class="form-group">
+            <label>Khóa </label>
+            <select class="form-control select2" style="width: 100%;" name="course_id">
+              <option  selected="selected">--Chọn Khóa--</option>
+              @foreach ($course_list as $item => $course)
+                 <option value="{{$course->course_id}}">{{$course->course_id}}</option>
+              @endforeach
+             </select>
+          </div>
+          <div class="form-group">
             <label for="exampleInputPassword1">Số Lượng Sinh Viên</label>
             <input type="text" class="form-control" name="student_qty" id="exampleInputPassword1" placeholder="Số Lượng Sinh Viên">
           </div>

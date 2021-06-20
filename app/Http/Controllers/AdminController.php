@@ -16,6 +16,7 @@ class AdminController extends Controller
         if($admin_id){
             return Redirect::to('/dashboard');
         } else {
+            Session::put('message','Không có quyền truy cập!');
             return Redirect::to('/login')->send();
         }
     }
@@ -31,6 +32,19 @@ class AdminController extends Controller
     public function login_admin(Request $request){
         $admin_email = $request->admin_email;
         $admin_password = md5($request->admin_password);
+
+        $validated = $request->validate([
+            'admin_email' => 'required|email:rfc,dns',
+            'admin_password' => 'required|min:8|max:20',
+        ],
+        [
+            'admin_email.dns' => 'Vui lòng nhập đúng dịnh dạng!',
+            'admin_email.required' => 'Vui lòng diền email!',
+            'admin_password.required' => 'Vui lòng diền mật khẩu!',
+            'admin_password.min' => 'Mật khẩu ít nhất 8 kí tự!',
+            'admin_password.max' => 'Mật khẩu nhiều nhất 20 kí tự!'
+        ] 
+        );
     
         $result = DB::table('tbl_admin')->where('admin_email',$admin_email)->where('admin_password',$admin_password)->first();
         
@@ -49,6 +63,7 @@ class AdminController extends Controller
         $this->AuthLogin();
          Session::put('admin_name',null);
          Session::put('admin_id',null);
+         Session::put('subject_id',null);
          return Redirect::to('/login');
     }
 }

@@ -36,6 +36,9 @@
             <th>Tên Môn Học</th>
             <th>Thới lượng</th>
             <th>Giáo Viên</th>
+            <th>Thi Skill</th>
+            <th>Thi Final</th>
+            <th>Ngày Bắt Đầu</th>
             <th width="150px"></th>
             
           </tr>
@@ -45,8 +48,21 @@
           <tr>
             <td>{{$subject->subject_id}}</td>
             <td>{{$subject->subject_name}}</td>
-            <td>{{$subject->total_subject}}</td>
+            <td>{{$subject->total_subject}} (Giờ)</td>
             <td>{{$subject->lecturers_name}}</td>
+            @if ($subject->is_skill == 1)
+              <td><i class="far fa-circle text-success"></i></td> 
+            @else
+              <td><i class="fas fa-times text-danger"></i></td> 
+            @endif
+
+            @if ($subject->is_final == 1)
+            <td><i class="far fa-circle text-success"></i></td> 
+            @else
+            <td><i class="fas fa-times text-danger"></i></td> 
+            @endif
+            
+            <td>{{$subject->start_subject}}</td>
             <td>
 
                 <a href="{{URL::to('/edit-subject/'.$subject->subject_id)}}" class="active styling-edit " ui-toggle-class="" style="margin-left: 5px; font-size:20px; ">

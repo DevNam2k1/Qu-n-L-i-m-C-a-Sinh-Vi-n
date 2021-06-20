@@ -21,32 +21,53 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-      <table class="table table-bordered">
+      <table class="table table-bordered" style="text-align: center">
+        <?php 
+        $message = Session::get('message');
+        if ($message) {
+          echo '<span class="text-alert" style="color:green">' .$message. '</span>';
+          Session::put('message',null);
+        }
+        ?>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Họ và Tên</th>
-            <th>Lớp </th>
-            <th>Môn Học</th>
-            <th>Điểm Skill</th>
-            <th>Điểm Final</th>
-            <th>Điểm Thi Lại</th>
+            <th>Mã Sinh Viên</th>
+            <th>Họ Đệm</th>
+            <th>Tên </th>
+            <th>Giới Tính</th>
+            <th>Ngày Sinh</th>
+            <th>Quê Quán</th>
+            <th>Lớp</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
+          @foreach ($student_list as $key => $student)
           <tr>
-            <td>1.</td>
-            <td>Update software</td>
+            <td>{{$student->student_id}}</td>
+            <td>{{$student->lastname}}</td>
+            <td>{{$student->firstname}}</td>
+            @if ($student->gender == 1)
+                <td>Nam</td>  
+            @else
+                <td>Nữ</td>
+            @endif
+            <td>{{$student->dob}}</td>
+            <td>{{$student->address}}</td>
+            <td>{{$student->class_name}}-{{$student->course_id}}</td>
             <td>
-              <div class="progress progress-xs">
-                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-              </div>
-            </td>
-            <td><span class="badge bg-danger">55%</span></td>
-            <td><span class="badge bg-danger">55%</span></td>
-            <td><span class="badge bg-danger">55%</span></td>
-            <td><span class="badge bg-danger">55%</span></td>
-          </tr>
+
+                <a href="{{URL::to('/edit-student/'.$student->student_id)}}" class="active styling-edit " ui-toggle-class="" style="margin-left: 5px; font-size:20px; ">
+                  <i class="far fa-edit text-success" ></i>
+                </a>
+                &nbsp;&nbsp;&nbsp;
+                <a onClick="return confirm('Bạn có chắc muốn xóa sinh viên này không?')" href="{{URL::to('/delete-student/'.$student->student_id)}}" style="margin-left: 5px; font-size:20px;" class="active styling-edit" ui-toggle-class="">
+                  <i class="fa fa-times text-danger "></i></a>
+                </a>
+              </td>
+          </tr>   
+          @endforeach
+
         </tbody>
       </table>
     </div>

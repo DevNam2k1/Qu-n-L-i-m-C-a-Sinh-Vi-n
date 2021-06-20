@@ -21,32 +21,72 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-      <table class="table table-bordered">
+      <table class="table table-bordered" style="text-align: center">
+        <?php 
+        $message = Session::get('message');
+        if ($message) {
+          echo '<span class="text-alert" style="color:green">' .$message. '</span>';
+          Session::put('message',null);
+        }
+        ?>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Họ và Tên</th>
-            <th>Lớp </th>
+            <th width='100'>Mã SV</th>
+            <th width='250'>Họ Tên Đệm</th>
+            <th>Tên</th>
+            <th>Mã Lớp</th>
             <th>Môn Học</th>
-            <th>Điểm Skill</th>
-            <th>Điểm Final</th>
-            <th>Điểm Thi Lại</th>
+            <th width='50'>Điểm Skill</th>
+            <th width='50'>Điểm Final</th>
+            <th width='50'>Điểm Thi Lại Skill</th>
+            <th width='50'>Điểm Thi Lại Final</th>
+            <th  width='100'></th>
           </tr>
         </thead>
         <tbody>
+          @foreach ($score_list as $key => $score)
           <tr>
-            <td>1.</td>
-            <td>Update software</td>
+            <td>{{$score->student_id}}</td>
+            <td>{{$score->lastname}}</td>
+            <td>{{$score->firstname}} </td>
+            <td>{{$score->class_id}}</td>
+            <td>{{$score->subject_name}}</td>
+            @if ($score->skill_1st != null)
+            <td>{{$score->skill_1st}}</td>
+            @else
+               <td><span class="badge bg-danger">X</span></td> 
+            @endif
+
+
+            @if ($score->final_1st != null)
+              <td>{{$score->final_1st}}</td>
+            @else
+              <td><span class="badge bg-danger">X</span></td> 
+            @endif
+            
+            @if ($score->skill_2st != null)
+              <td>{{$score->skill_2st}}</td>
+            @else
+              <td><span class="badge bg-danger">X</span></td> 
+            @endif
+            
+            @if ($score->final_2st != null)
+              <td>{{$score->final_2st}}</td>
+            @else
+            <td><span class="badge bg-danger">X</span></td> 
+            @endif
             <td>
-              <div class="progress progress-xs">
-                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-              </div>
+              <a href="{{URL::to('/edit-score/'.$score->student_id)}}" class="active styling-edit " ui-toggle-class="" style="margin-left: 5px; font-size:20px; ">
+                <i class="far fa-edit text-success" ></i>
+              </a>
+              &nbsp;&nbsp;&nbsp;
+              <a onClick="return confirm('Bạn có chắc muốn xóa giảng viên này không?')" href="{{URL::to('/delete-score/'.$score->student_id)}}" style="margin-left: 5px; font-size:20px;" class="active styling-edit" ui-toggle-class="">
+                <i class="fa fa-times text-danger "></i></a>
+              </a>
             </td>
-            <td><span class="badge bg-danger">55%</span></td>
-            <td><span class="badge bg-danger">55%</span></td>
-            <td><span class="badge bg-danger">55%</span></td>
-            <td><span class="badge bg-danger">55%</span></td>
           </tr>
+                        
+          @endforeach
         </tbody>
       </table>
     </div>

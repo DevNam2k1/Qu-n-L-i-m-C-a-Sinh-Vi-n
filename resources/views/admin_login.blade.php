@@ -26,28 +26,41 @@
       <?php 
       $message = Session::get('message');
       if ($message) {
-        echo '<span class="text-alert" style="color:red">' .$message. '</span>';
+        echo '<div class="alert alert-danger">' .$message. '</div>';
         Session::put('message',null);
       }
      ?>
+  
       <form action="{{URL::to('/login-admin')}}" method="post">
         {{ csrf_field() }}
         <div class="input-group mb-3">
           <input type="email" class="form-control" name="admin_email" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-envelope">
+              </span>
             </div>
           </div>
         </div>
+        @if($errors->has('admin_email'))
+        <div class="alert alert-danger">
+            {{$errors->first('admin_email')}}
+         </div>
+        @endif
         <div class="input-group mb-3">
           <input type="password" class="form-control" name="admin_password" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <span class="fas fa-lock">
+              </span>
             </div>
           </div>
         </div>
+        @if($errors->has('admin_password'))
+        <div class="alert alert-danger">
+            {{$errors->first('admin_password')}}
+         </div>
+        @endif
         <div class="row">
           <div class="col-6">
             <div class="icheck-primary">
@@ -66,7 +79,7 @@
         </div>
       </form>
 
-      <div class="social-auth-links text-center mb-3">
+      {{-- <div class="social-auth-links text-center mb-3">
         <p>- HAY -</p>
         <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i> Đăng nhập bằng Facebook
@@ -74,7 +87,7 @@
         <a href="#" class="btn btn-block btn-danger">
           <i class="fab fa-google-plus mr-2"></i> Đăng nhập bằng Google+
         </a>
-      </div>
+      </div> --}}
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
